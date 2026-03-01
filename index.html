@@ -329,6 +329,61 @@
         }
 
         /* ============================================
+           STYLE PICKER — right side, vertically centered
+           ============================================ */
+        .style-picker {
+            position: fixed;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--rule);
+            border-radius: 20px;
+            overflow: hidden;
+            z-index: 50;
+            transition: border-color 0.4s var(--ease);
+        }
+
+        .style-option {
+            appearance: none;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-family: var(--mono);
+            font-weight: 400;
+            font-size: 0.625rem;
+            letter-spacing: 0.04em;
+            color: var(--fg4);
+            padding: 6px 8px;
+            transition: color 0.3s var(--ease), background 0.3s var(--ease);
+        }
+
+        .style-option:hover {
+            color: var(--fg2);
+        }
+
+        .style-option.active {
+            color: var(--fg);
+            background: var(--hover);
+        }
+
+        /* ============================================
+           STYLE B — left-aligned layout
+           ============================================ */
+        [data-style="B"] .hero {
+            text-align: left;
+        }
+
+        [data-style="B"] .statement {
+            margin: 0;
+        }
+
+        [data-style="B"] .panel-content {
+            text-align: left;
+        }
+
+        /* ============================================
            ANIMATIONS
            ============================================ */
         .fade {
@@ -360,13 +415,18 @@
         <span class="theme-label">Dark</span>
     </button>
 
+    <div class="style-picker" aria-label="Layout style">
+        <button class="style-option active" data-style="A" onclick="setStyle('A')">A</button>
+        <button class="style-option" data-style="B" onclick="setStyle('B')">B</button>
+    </div>
+
     <div class="page">
         <div class="container">
 
             <!-- Hero -->
             <div class="hero">
                 <h1 class="name fade d1">Alan Brantley</h1>
-                <p class="statement fade d2">I build tools that help people think better. Teacher, designer, and builder — working at the intersection of education and AI.</p>
+                <p class="statement fade d2">Educator, builder, problem solver. I build tools to fix what frustrates me, then share them with anyone facing the same thing.</p>
             </div>
 
             <!-- Projects -->
@@ -383,21 +443,21 @@
                 <!-- Panels -->
                 <div class="project-panel" id="panel-calc">
                     <div class="panel-content">
-                        <p class="panel-description">AP Calculus study materials built from 14 years of classroom data and 22 years of FRQ analysis.</p>
+                        <p class="panel-description">AP Calculus study materials built from real classroom data. Helping students master the exam on their own terms.</p>
                         <a href="https://calculusabcs.com" target="_blank" rel="noopener" class="panel-link">calculusabcs.com <span class="arrow">↗</span></a>
                     </div>
                 </div>
 
                 <div class="project-panel" id="panel-ng">
                     <div class="panel-content">
-                        <p class="panel-description">A geometric framework exploring how circle-derived constructions reveal spatial structure from first principles.</p>
+                        <p class="panel-description">Geometry rebuilt from intuition. A visual framework for understanding shape, space, and structure from first principles.</p>
                         <a href="https://natural-geometry.com" target="_blank" rel="noopener" class="panel-link">natural-geometry.com <span class="arrow">↗</span></a>
                     </div>
                 </div>
 
                 <div class="project-panel" id="panel-teaching">
                     <div class="panel-content">
-                        <p class="panel-description">How I use Claude, agentic workflows, and AI tools to build curriculum, generate materials, and ship educational products.</p>
+                        <p class="panel-description">Building curriculum and shipping products with AI. How do we use these tools to think better, not less? Notes from the intersection of teaching and technology.</p>
                         <span class="panel-link" style="cursor:default; border-bottom-style:dashed;">Coming soon</span>
                     </div>
                 </div>
@@ -408,8 +468,7 @@
                 <button class="about-toggle" onclick="toggleAbout()">About</button>
                 <div class="about-body" id="about-body">
                     <div class="about-text">
-                        <p>I teach AP Calculus and Geometry at a private school in Los Angeles. Before the classroom, I spent 14 years in operations and management. I studied math and computer science, then product design at Stanford, then graduated from USC's Iovine and Young Academy.</p>
-                        <p>I build the tools I wish existed — for my students, for my practice, for anyone trying to learn how to think clearly. I believe AI should sharpen thinking, not replace it.</p>
+                        <p>Stanford product design. USC Iovine and Young Academy. Five years teaching, two in the classroom. Currently teaching AP Calculus BC, college prep calculus, and geometry. I build tools that solve problems.</p>
                     </div>
                 </div>
             </div>
@@ -437,6 +496,16 @@
             setTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
         }
         setTheme(getTheme());
+
+        // Style picker
+        function setStyle(s) {
+            document.documentElement.setAttribute('data-style', s);
+            localStorage.setItem('style', s);
+            document.querySelectorAll('.style-option').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.style === s);
+            });
+        }
+        setStyle(localStorage.getItem('style') || 'A');
 
         // Projects
         let activeTab = null;
