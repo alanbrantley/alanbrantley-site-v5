@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light" data-style="B">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alan Brantley</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --ff: 'DM Sans', sans-serif;
@@ -36,9 +39,17 @@
             --grain: 0.035;
         }
 
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        html { height: 100%; }
+        html {
+            height: 100%;
+        }
 
         body {
             font-family: var(--ff);
@@ -62,7 +73,10 @@
             z-index: 1000;
         }
 
-        a { color: inherit; text-decoration: none; }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
 
         /* ============================================
            PAGE — centered, narrow
@@ -101,7 +115,10 @@
             transition: color 0.3s var(--ease);
             z-index: 50;
         }
-        .theme-toggle:hover { color: var(--fg2); }
+
+        .theme-toggle:hover {
+            color: var(--fg2);
+        }
 
         /* ============================================
            HERO
@@ -275,7 +292,9 @@
             transition: color 0.3s var(--ease);
         }
 
-        .about-toggle:hover { color: var(--fg3); }
+        .about-toggle:hover {
+            color: var(--fg3);
+        }
 
         .about-body {
             max-height: 0;
@@ -304,7 +323,7 @@
             transition: color 0.4s var(--ease);
         }
 
-        .about-text p + p {
+        .about-text p+p {
             margin-top: 0.875rem;
         }
 
@@ -399,28 +418,53 @@
             transform: translateY(6px);
             animation: fadeUp 0.6s var(--ease) forwards;
         }
-        .d1 { animation-delay: 0.1s; }
-        .d2 { animation-delay: 0.25s; }
-        .d3 { animation-delay: 0.4s; }
-        .d4 { animation-delay: 0.55s; }
-        .d5 { animation-delay: 0.7s; }
+
+        .d1 {
+            animation-delay: 0.1s;
+        }
+
+        .d2 {
+            animation-delay: 0.25s;
+        }
+
+        .d3 {
+            animation-delay: 0.4s;
+        }
+
+        .d4 {
+            animation-delay: 0.55s;
+        }
+
+        .d5 {
+            animation-delay: 0.7s;
+        }
 
         @keyframes fadeUp {
-            to { opacity: 1; transform: translateY(0); }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* ============================================
            RESPONSIVE
            ============================================ */
         @media (max-width: 480px) {
-            .page { padding: 2rem 1.5rem; }
-            .project-tabs { gap: 1.75rem; }
+            .page {
+                padding: 2rem 1.5rem;
+            }
+
+            .project-tabs {
+                gap: 1.75rem;
+            }
+
             .style-picker {
                 right: 0.75rem;
             }
         }
     </style>
 </head>
+
 <body>
     <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
         <span class="theme-label">Dark</span>
@@ -437,7 +481,8 @@
             <!-- Hero -->
             <div class="hero">
                 <h1 class="name fade d1">Alan Brantley</h1>
-                <p class="statement fade d2">Educator, builder, problem solver. I build tools to fix what frustrates me, then share them with anyone facing the same thing.</p>
+                <p class="statement fade d2">I am an educator, a learner, and a designer. I enjoy building systems that
+                    simplify complexity.</p>
             </div>
 
             <!-- Projects -->
@@ -448,27 +493,35 @@
                 <div class="project-tabs">
                     <button class="project-tab" data-target="calc" onclick="toggleProject(this)">Calculus ABCs</button>
                     <button class="project-tab" data-target="ng" onclick="toggleProject(this)">Natural Geometry</button>
-                    <button class="project-tab" data-target="teaching" onclick="toggleProject(this)">Teaching × AI</button>
+                    <button class="project-tab" data-target="teaching" onclick="toggleProject(this)">Teaching ×
+                        AI</button>
                 </div>
 
                 <!-- Panels -->
                 <div class="project-panel" id="panel-calc">
                     <div class="panel-content">
-                        <p class="panel-description">AP Calculus study materials built from real classroom data. Helping students master the exam on their own terms.</p>
-                        <a href="https://calculusabcs.com" target="_blank" rel="noopener" class="panel-link">calculusabcs.com <span class="arrow">↗</span></a>
+                        <p class="panel-description">AP Calculus study materials built from real classroom data. Helping
+                            students master the exam on their own terms.</p>
+                        <a href="https://calculusabcs.com" target="_blank" rel="noopener"
+                            class="panel-link">calculusabcs.com <span class="arrow">↗</span></a>
                     </div>
                 </div>
 
                 <div class="project-panel" id="panel-ng">
                     <div class="panel-content">
-                        <p class="panel-description">Geometry rebuilt from intuition. A visual framework for understanding shape, space, and structure from first principles.</p>
-                        <a href="https://natural-geometry.com" target="_blank" rel="noopener" class="panel-link">natural-geometry.com <span class="arrow">↗</span></a>
+                        <p class="panel-description">Geometry rebuilt from intuition. A visual framework for
+                            understanding shape, space, and structure from first principles.</p>
+                        <a href="https://natural-geometry.com" target="_blank" rel="noopener"
+                            class="panel-link">natural-geometry.com <span class="arrow">↗</span></a>
                     </div>
                 </div>
 
                 <div class="project-panel" id="panel-teaching">
                     <div class="panel-content">
-                        <p class="panel-description">Building curriculum and shipping products with AI. How do we use these tools to think better, not less? Notes from the intersection of teaching and technology.</p>
+                        <p class="panel-description"> Building curriculum and shipping products with AI. How do we use
+                            these tools to think better, not less? Notes from the intersection of teaching, learning,
+                            thinking, and
+                            technology.</p>
                         <span class="panel-link" style="cursor:default; border-bottom-style:dashed;">Coming soon</span>
                     </div>
                 </div>
@@ -479,7 +532,10 @@
                 <button class="about-toggle" onclick="toggleAbout()">About</button>
                 <div class="about-body" id="about-body">
                     <div class="about-text">
-                        <p>I teach AP Calculus BC, college preparatory calculus, and geometry at a private high school in Los Angeles, California. In my spare time, I like to build with AI.</p>
+                        <p>I teach AP Calculus BC, college preparatory calculus, and geometry
+                            in Los Angeles, California. I love my job and I have the coolest students. I'm
+                            always
+                            trying to find ways to do better and be better. </p>
                     </div>
                 </div>
             </div>
@@ -545,4 +601,5 @@
         }
     </script>
 </body>
+
 </html>
