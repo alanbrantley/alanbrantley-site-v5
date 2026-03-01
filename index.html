@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="light" data-style="B">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -426,7 +426,7 @@
         <span class="theme-label">Dark</span>
     </button>
 
-    <div class="style-picker" aria-label="Layout style">
+    <div class="style-picker" aria-label="Layout style" style="display:none">
         <button class="style-option active" data-style="A" onclick="setStyle('A')">A</button>
         <button class="style-option" data-style="B" onclick="setStyle('B')">B</button>
     </div>
@@ -512,7 +512,7 @@
                 btn.classList.toggle('active', btn.dataset.style === s);
             });
         }
-        setStyle(localStorage.getItem('style') || 'A');
+        setStyle(localStorage.getItem('style') || 'B');
 
         // Projects
         let activeTab = null;
