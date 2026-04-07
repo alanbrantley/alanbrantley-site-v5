@@ -2,6 +2,14 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Vault Project Docs
+
+Vault root: `~/OS/Projects/alanbrantley.com/`
+- `STATE.md` — current state (read at session start, update at session end)
+- `Session-Handoff.md` — session context
+- `CLAUDE.md` — authoritative project instructions
+- `_project.md` — project config, objectives
+
 ## Overview
 
 Personal landing page for alanbrantley.com. Single-file static site — no build step, no dependencies, no package manager.
